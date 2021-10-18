@@ -1,0 +1,15 @@
+@import 'variables';
+
+.orange-backdrop {
+  background: $backdrop-orange;
+}
+
+// colors for use in css
+$colors: (
+  "blue": $deep-blue,
+  'light-blue': $light-blue,
+  'red': $red,
+  'white': $white,
+  'dark': $dark
+)
+

@@ -1,0 +1,58 @@
+// typography and all that good stuff
+@import 'variables';
+
+@mixin  button($color:#fff) {
+  display: flex;
+  justify-content: center;
+  border-radius: $border-radius;
+  padding: 5px 19px;
+  cursor: pointer;
+  outline: none;
+  color: $color;
+  font-weight: $font-weight-bold;
+
+}
+
+.button {
+  @include button;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.button-fill-blue {
+    background-color: $deep-blue;
+    border: none;
+    // &:hover {
+    //   background-color: $light-blue;
+    // }
+  }
+
+  &.button-fill-red {
+    border: none;
+    background-color: $red;
+    color: $white;
+    &:hover {
+      background-color: $light-blue;
+    }
+  }
+
+  &.button-outline {
+    background-color: $light-blue;
+    color: $dark;
+    border: 1px solid $deep-blue;
+    &:hover {
+      background-color: $brand-backdrop-gray;
+      border: 1px solid $light;
+    }
+  }
+  &.button-outline-gray {
+    background-color: $brand-backdrop-gray;
+    color: $dark;
+    border: 1px solid $light;
+    &:hover {
+      background-color: $light-blue;
+      border: 1px solid $deep-blue;
+    }
+  }
+}
