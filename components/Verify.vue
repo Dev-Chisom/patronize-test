@@ -4,19 +4,17 @@
     <p class="f-size-3 text-medium m-b-4">Select a verification method</p>
     <div class="d-flex items-center">
       <button
-        class="button button-outline m-r-8"
-        :class="
-         [ tab === 'bvn' ? 'button-outline' : 'button-outline-gray']
-        "
+        class="button button-outline m-r-9"
+        :class="[tab === 'bvn' ? 'button-outline' : 'button-outline-gray']"
         @click="changeTab('bvn')"
       >
         <p class="p-r-2 p-l-2 p-t-1 p-b-1 f-size-4">BVN</p>
       </button>
       <button
-        class="button "
-         :class="
-          [tab === 'account_number' ? 'button-outline' : 'button-outline-gray']
-        "
+        class="button"
+        :class="[
+          tab === 'account_number' ? 'button-outline' : 'button-outline-gray',
+        ]"
         @click="changeTab('account_number')"
       >
         <p class="p-r-2 p-l-2 p-t-1 p-b-1 f-size-4">Personal Account Number</p>
@@ -36,7 +34,7 @@
         </div>
       </div>
       <div v-if="tab == 'account_number'">
-        <div class="d-flex items-center">
+        <div class="d-flex items-center desktop-input">
           <div class="m-r-18 col-s-12">
             <label for="account_number" class="f-size-3 text-medium m-b-4"
               >Account Number</label
@@ -47,20 +45,26 @@
             <label for="account_number" class="f-size-3 text-medium m-b-4"
               >Select Bank</label
             >
-            <select name="bank" id="" class="m-t-4">
-                <option value="1">FCMB</option>
-            </select>
+            <base-select
+              :options="['lorem', 'ipsum', 'esut', 'sitem']"
+              :default="'lorem'"
+              class="select"
+              @input="displayToKey($event)"
+            />
           </div>
         </div>
-        <hr  class="m-t-18"/>
       </div>
+
+      <hr class="m-t-20" />
     </div>
   </div>
 </template>
 
 <script>
+import BaseSelect from "./BaseSelect.vue";
 export default {
   name: "Verify",
+  components: { BaseSelect },
   data() {
     return {
       tab: "bvn",
@@ -70,26 +74,23 @@ export default {
     changeTab(tab) {
       this.tab = tab;
     },
+    displayToKey(e){
+      console.log(e)
+    }
   },
 };
 </script>
 
-<style lang="scss" scoped>
-select{
-    // -webkit-appearance: none;
-    // -moz-appearance: none;
-    // background: transparent;
-    // background-image: url("~/assets/images/icons/caret-down.svg");
-    // background-repeat: no-repeat;
-    // background-position-x: 100%;
-    // background-position-y: 5px;
-    border: 1px solid #E4E9EF;
-    border-radius: 10px;
-    margin-right: 2rem;
-    height: 54px;
-    padding: 1rem;
-    padding-right: 2rem;
-    width: 100%;
-    outline: none;
+<style lang="scss">
+@media ( max-width: 42.85em) {
+  .desktop-input {
+    flex-direction: column;
+  }
+  .m-l-18{
+    margin-left: 0;
+  }
+  .m-r-18{
+    margin-right: 0;
+  }
 }
 </style>
