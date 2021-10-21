@@ -48,7 +48,7 @@
             <base-select
               :options="['lorem', 'ipsum', 'esut', 'sitem']"
               :default="'lorem'"
-              class="select"
+              class="select mb-6"
               @input="displayToKey($event)"
             />
           </div>

@@ -34,13 +34,11 @@
       <div class="d-flex items-center">
         <button
           class="button button-outline-gray m-r-9"
-          @click="changeTab('bvn')"
         >
           <p class="p-r-2 p-l-2 p-t-1 p-b-1 f-size-4">Yes</p>
         </button>
         <button
           class="button button-outline"
-          @click="changeTab('account_number')"
         >
           <p class="p-r-2 p-l-2 p-t-1 p-b-1 f-size-4">No</p>
         </button>
